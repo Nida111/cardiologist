@@ -1,0 +1,63 @@
+﻿@model IEnumerable<bookyourdoctor.Hospital_request>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Hospital_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_request)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.patient_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hospital_day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Request_Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hospital_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_request)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.patient_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hospital_day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Request_Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.doctor_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.doctor_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.doctor_id })
+        </td>
+    </tr>
+}
+
+</table>

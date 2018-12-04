@@ -1,0 +1,24 @@
+﻿@model bookyourdoctor.Clinic_request
+
+@{
+    ViewBag.Title = "appoint1";
+}
+
+
+
+<h2>appoint</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class=" container">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Clinic_time, "Clinic Time:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.clinic_time, Clinic_request.slots(ViewBag.DoctorId))
+            </div>
+        </div>
+    </div>
+
+}

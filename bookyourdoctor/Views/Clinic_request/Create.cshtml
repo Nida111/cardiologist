@@ -1,0 +1,41 @@
+﻿@model bookyourdoctor.doctor_scedule
+
+@{
+                /**/
+
+                ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        
+   
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.clinic_time)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.hospital_time)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.is_avalible)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Clinic_day)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.hospial_day)
+    </td>
+    
+</tr>
+}
+
+    </table>
+
+}

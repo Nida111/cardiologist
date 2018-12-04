@@ -1,0 +1,81 @@
+﻿@model bookyourdoctor.doctor
+
+@{
+    ViewBag.Title = "DentistDetails";
+}
+
+<h2>DentistDetails</h2>
+
+<body style="background-image:url(../images/den.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:400px;">
+    <style>
+
+        .square {
+            padding-top;
+            100px;
+            height: 250px;
+            width: 300px;
+            background-color: white;
+            position: relative;
+            left: 50px;
+            border-radius: 50%;
+            top: 45px;
+        }
+
+        .square1 {
+            height: 250px;
+            width: 300px;
+            background-color: white;
+            position: relative;
+            left: 500px;
+            border-radius: 50%;
+            bottom: 500px;
+        }
+
+        .square2 {
+            height: 250px;
+            width: 300px;
+            background-color: white;
+            position: relative;
+            left: 950px;
+            border-radius: 50%;
+            bottom: 1030px;
+        }
+    </style>
+
+
+    <h2>CardiologistsDetails</h2>
+    @{
+        doctor dg = new doctor();
+        IEnumerable<doctor> lst = dg.doctorsspec("Dentist");
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+
+        foreach (var item in lst.ToList())
+        {
+            <div class="square" style="padding-left:30px">
+                <h3 style="padding-left:40px; padding-top:30px">@Html.ActionLink("Details", "Details", "doctors", new { ide = item.doctor_id }, null)</h3>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.clinic_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hospital_name)
+                </td>
+
+
+            </div>
+        }
+    }
+
+</body>
+
